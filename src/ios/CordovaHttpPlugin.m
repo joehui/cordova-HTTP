@@ -107,8 +107,9 @@
    NSString *url = [command.arguments objectAtIndex:0];
    NSData *parameters = [command.arguments objectAtIndex:1];
    NSDictionary *headers = [command.arguments objectAtIndex:2];
+   NSString *myContentType = [command.arguments objectAtIndex:3];
     
-   [headers setValue:@"application/json" forKey:@"Content-Type"];
+   [headers setValue:@myContentType forKey:@"Content-Type"];
    [self setRequestHeaders: headers forManager:manager];
    
    CordovaHttpPlugin* __weak weakSelf = self;
