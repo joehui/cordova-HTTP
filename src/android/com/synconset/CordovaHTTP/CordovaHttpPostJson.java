@@ -19,8 +19,9 @@ import com.github.kevinsawicki.http.HttpRequest.HttpRequestException;
  
 public class CordovaHttpPostJson extends CordovaHttp implements Runnable {
     
-    public CordovaHttpPostJson(String urlString, JSONObject jsonObj, Map<String, String> headers, String contentType, CallbackContext callbackContext) {
+    public CordovaHttpPostJson(String urlString, JSONObject jsonObj, Map<String, String> headers, CallbackContext callbackContext, String myContentType) {
         super(urlString, jsonObj, headers, contentType, callbackContext);
+        this.myContentType = myContentType;
     }
     
     @Override
@@ -30,7 +31,7 @@ public class CordovaHttpPostJson extends CordovaHttp implements Runnable {
             this.setupSecurity(request);
             request.headers(this.getHeaders());
             request.acceptJson();
-            request.contentType(contentType);
+            request.contentType(myContentType);
             request.send(getJsonObject().toString());
             int code = request.code();
             String body = request.body(CHARSET);
