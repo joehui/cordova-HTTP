@@ -21,7 +21,7 @@ public class CordovaHttpPostJson extends CordovaHttp implements Runnable {
     private String myContentType;
     
     public CordovaHttpPostJson(String urlString, JSONObject jsonObj, Map<String, String> headers, CallbackContext callbackContext, String myContentType) {
-        super(urlString, jsonObj, headers, myContentType, callbackContext);
+        super(urlString, jsonObj, headers, callbackContext);
         this.myContentType = myContentType;
     }
     
