@@ -75,7 +75,7 @@ public class CordovaHttpPlugin extends CordovaPlugin {
             String urlString = args.getString(0);
             JSONObject jsonObj = args.getJSONObject(1);
             JSONObject headers = args.getJSONObject(2);
-            String myContentType = args.getJSONObject(3);
+            String myContentType = args.getString(3);
             HashMap<String, String> headersMap = this.getStringMapFromJSONObject(headers);
             CordovaHttpPostJson postJson = new CordovaHttpPostJson(urlString, jsonObj, headersMap, myContentType, callbackContext);
             cordova.getThreadPool().execute(postJson);
